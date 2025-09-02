@@ -25,7 +25,7 @@ export class TodoService {
 
   updateTodo(todo: Todo) {
     this.http
-      .put<any>(
+      .put<Todo>(
         `${this.ENDPOINT}/${todo.id}`,
         JSON.stringify({
           todo: todo.id,
@@ -45,6 +45,18 @@ export class TodoService {
           if (index !== -1) arr[index] = todoUpdated;
           return arr;
         });
+      });
+  }
+
+  deleteTodo(id: number) {
+    this.http
+      .delete<Todo>(`${this.ENDPOINT}/${id}`, {
+        headers: {
+          'Content-type': 'application/json; charset=UTF=8',
+        },
+      })
+      .subscribe(() => {
+        this.#todos.update((arr) => arr.filter((t) => t.id !== id));
       });
   }
 }

@@ -9,6 +9,7 @@ import { TodoService } from './services/todo.service';
     @for (todo of todos(); track todo.id) {
       {{ todo.title }}
       <button (click)="update(todo)">Update</button>
+      <button (click)="delete(todo.id)">Delete</button>
     }
   `,
   styles: [],
@@ -19,5 +20,9 @@ export class AppComponent {
 
   update(todo: Todo) {
     this.todoService.updateTodo(todo);
+  }
+
+  delete(id: number) {
+    this.todoService.deleteTodo(id);
   }
 }
