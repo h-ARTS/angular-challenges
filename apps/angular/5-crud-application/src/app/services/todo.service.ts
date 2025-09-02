@@ -50,7 +50,7 @@ export class TodoService {
 
   deleteTodo(id: number) {
     this.http
-      .delete<Todo>(`${this.ENDPOINT}/${id}`, {
+      .delete<void>(`${this.ENDPOINT}/${id}`, {
         headers: {
           'Content-type': 'application/json; charset=UTF=8',
         },
