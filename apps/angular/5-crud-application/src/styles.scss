@@ -8,3 +8,17 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
